@@ -94,6 +94,11 @@
         #pac-input {
             width: 200px;
         }
+        
+        .nbpacsbanner {
+            max-height: 20px;
+        }
+
     }
     </style>
 </head>
@@ -105,6 +110,8 @@
                 Search for Nearby Restaurants and more.
             </div> -->
             <div id="type-selector" class="pac-controls">
+                <img class="nbpacsbanner" src="http://nbpa.com/wp-content/uploads/2018/03/career2018.png" alt="" style="max-height: 40px;">
+                <br>
                 <input type="radio" name="type" id="changetype-all" checked="checked">
                 <label for="changetype-all">All</label>
                 <input type="radio" name="type" id="changetype-establishment">
@@ -136,7 +143,7 @@
 
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: 36.1060, lng: -115.1785 },
+            center: { lat: 36.1060, lng: -115.1750 },
             zoom: 17
         });
 
@@ -155,7 +162,7 @@
             icon: nbpamarker,
             label: 'Career Summit 2018',
             animation: google.maps.Animation.DROP,
-            position: { lat: 36.1060, lng: -115.1785 }
+            position: { lat: 36.1075, lng: -115.1758 }
         });
 
 
