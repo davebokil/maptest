@@ -153,7 +153,7 @@
             url: 'http://nbpa.com/wp-content/uploads/2018/04/NBPA_ICON_FLATGOLD_PNG-e1523384551528.png',
             // size: new google.maps.Size(32, 38),
             // scaledSize: new google.maps.Size(32, 38),
-            labelOrigin: new google.maps.Point(15, -15)
+            labelOrigin: new google.maps.Point(-69, 15)
         };
 
         var initMarker = new google.maps.Marker({
@@ -162,7 +162,7 @@
             icon: nbpamarker,
             label: 'Career Summit 2018',
             animation: google.maps.Animation.DROP,
-            position: { lat: 36.1075, lng: -115.1758 }
+            position: { lat: 36.1079, lng: -115.1750 }
         });
 
 
@@ -209,8 +209,17 @@
                 map.setCenter(place.geometry.location);
                 map.setZoom(17); // Why 17? Because it looks good.
             }
-            marker.setPosition(place.geometry.location);
+            marker.setPlace({
+                placeId: place.place_id,
+                location: place.geometry.location
+            });
             marker.setVisible(true);
+
+            infowindowContent.children['place-name'].textContent = place.name;
+            // infowindowContent.children['place-id'].textContent = place.place_id;
+            infowindowContent.children['place-address'].textContent =
+                place.formatted_address;
+            infowindow.open(map, marker);
 
             var address = '';
             if (place.address_components) {
